@@ -1,16 +1,41 @@
+//var access_token = $.cookie("access_token");
+var tenantId=$.cookie("tenantId")
 var loc = location.href;
-var tenantId
-if((loc.indexOf("?id=")!=-1)&&(loc.indexOf("&listID=")!=-1))
-{
-    tenantId=loc.substring(loc.indexOf('=')+1,loc.indexOf('&'));
-}
+console.log($.cookie("tenantId"))
+// if(tenantId="undefined")
+// {
+//     toastr.warning("请登录");
+// }
+// $.ajax({
+//         url: 'api/3d815/paging/2?limit=4',
+//         type: 'get',
+//         //async : false,
+//         contentType: 'text/plain;charset=UTF-8',
+//         dataType:"json",
+//         headers: {
+//             "Authorization": "Bearer "+access_token,
+//         },
+
+//         error:function(){
+//             toastr.error('失败');
+//         },
+//         success: function(req) {
+//            console.log(req)
+
+//            }
+
+// var tenantId
+// if((loc.indexOf("?id=")!=-1)&&(loc.indexOf("&listID=")!=-1))
+// {
+//     tenantId=loc.substring(loc.indexOf('=')+1,loc.indexOf('&'));
+// }
 
 
-else if(loc.indexOf("?id=")!=-1)
-            {
-              var id = loc.substr(loc.indexOf("=")+1)//从=号后面的内容
-              tenantId=id
-            }
+// else if(loc.indexOf("?id=")!=-1)
+//             {
+//               var id = loc.substr(loc.indexOf("=")+1)//从=号后面的内容
+//               tenantId=id
+//             }
 console.log(tenantId)
 document.write("<script language=javascript src='../static/baidu/baidujs/upLoadFile.js'><\/script>");
 var index = 0;
@@ -311,7 +336,7 @@ function addContent(tenantId,id,name,longtitude,latitude,year,month,date)
                     '</tr>'+
                     '</table> '+'<input type="button" id="addModel" value="上传场景" onclick="addModel()" />'+'&nbsp;&nbsp;&nbsp;&nbsp;'
                     +'<input type="button" id="alterSite" value="修改站点" onclick="alterSite()"/>'+'&nbsp;&nbsp;&nbsp;&nbsp;'
-                    +'<input type="button" value="逆解析" onclick="bdGEO()">'+'&nbsp;&nbsp;&nbsp;&nbsp;'
+                    +'<input type="button" value="站点设备" onclick="bdGEO()">'+'&nbsp;&nbsp;&nbsp;&nbsp;'
                     +'<input type="button" value="进入场景" onclick="intoScence()">'
                     +'</div>'
 
@@ -431,7 +456,7 @@ function (){
         }
     });
     //聚合点
-    //markerClusterer = new BMapLib.MarkerClusterer(map, {markers:markers});
+    markerClusterer = new BMapLib.MarkerClusterer(map, {markers:markers});
 }
 
 //////////////////////////添加站点///////////////////
@@ -934,16 +959,6 @@ function lookDevice(e)
 }
 
 var app = angular.module("myApp1", []);
-app.controller("myCtrl1", function($scope) {
-    $scope.show = function () {
-     $('#addressList').modal('show');
-    };
-    $scope.a1 = function ($index) {
-        var ePoint=$("#myTable4").find("tr").eq($index+1).find("td").eq(0).prevObject[2].innerHTML;
-        map.centerAndZoom(new BMap.Point(ePoint.substring(1, ePoint.indexOf(',')),ePoint.substring(ePoint.indexOf(',')+1, ePoint.length-1)), 22);
-        $('#addressList').modal('hide');
-    };
-});
 
 app.controller("myCtrl2", function($scope) {
     $scope.show = function () {
@@ -1020,34 +1035,25 @@ app.controller("myCtrl2", function($scope) {
     };
 });
 
-/////////逆解析////
-function bdGEO(){
-    for (var i = 0; i < reqArray.length; i++) {
-        if ((openIfoID.point.lat == reqArray[i].latitude) && (openIfoID.point.lng == reqArray[i].longtitude)) {        
-            //siteId.value=reqArray[i].id;
-            var pt = openIfoID.point;
-            }
-    }
-    geocodeSearch(pt);  
-}
 
-function geocodeSearch(pt){
-    var myGeo = new BMap.Geocoder();
-    myGeo.getLocation(pt, function(rs){
-        //console.log(rs)
-        var addComp = rs.addressComponents;
-        $("#address1").val(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber)
-        var appElement = document.querySelector('[ng-controller=myCtrl1]');
-        //获取$scope变量
-        var $scope = angular.element(appElement).scope();
-        //调用names变量，并改变names的值
-        $scope.names= rs.surroundingPois
-        //新建names，如果想同步到Angular控制器中，则需要调用$apply()方法即可
-        $scope.$apply();
-        //调用控制器中的show()方法
-        $scope.show();     
-    });
-}
+
+// function geocodeSearch(pt){
+//     var myGeo = new BMap.Geocoder();
+//     myGeo.getLocation(pt, function(rs){
+//         //console.log(rs)
+//         var addComp = rs.addressComponents;
+//         $("#address1").val(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber)
+//         var appElement = document.querySelector('[ng-controller=myCtrl1]');
+//         //获取$scope变量
+//         var $scope = angular.element(appElement).scope();
+//         //调用names变量，并改变names的值
+//         $scope.names= rs.surroundingPois
+//         //新建names，如果想同步到Angular控制器中，则需要调用$apply()方法即可
+//         $scope.$apply();
+//         //调用控制器中的show()方法
+//         $scope.show();     
+//     });
+// }
 
 //////报警事件/////
 var warning;

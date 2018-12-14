@@ -1,11 +1,16 @@
 var loc = location.href;
-var tenantId
-if(loc.indexOf("?id=")!=-1)
-            {
-              var id = loc.substr(loc.indexOf("=")+1)//从=号后面的内容
-              tenantId=id
-            }
-console.log(tenantId)
+// var tenantId
+// if(loc.indexOf("?id=")!=-1)
+//             {
+//               var id = loc.substr(loc.indexOf("=")+1)//从=号后面的内容
+//               tenantId=id
+//             }
+// console.log(tenantId)
+var tenantId=$.cookie("tenantId");
+// if(tenantId=undefined)
+// {
+//     toastr.warning("请登录");
+// }
 var siteId1
 var siteId2
 var idArray=[];
@@ -431,6 +436,6 @@ function look()
 
 function lookMap()
 {
-    location.href="/baidu?id="+tenantId;
+    location.href="/baidu";
 }
 

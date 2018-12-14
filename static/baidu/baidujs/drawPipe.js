@@ -122,6 +122,9 @@ function pipeShow(type,drawPoint,polylinePointSum,pipeIdArray,pipeNameArray,pipe
                     openInfo(content,e)
                     openIfoID=marker;
                     });
+                marker.addEventListener("dbclick",function(){
+                    alert('1')
+                    });
             }
             
             var opts = {

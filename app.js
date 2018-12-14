@@ -66,5 +66,5 @@ app.wss = websocket(server);
 global.wss = app.wss;
 
 console.log('app started at port 8800...');   //这是一个注释A
-module.exports = app;
+//module.exports = app;
 

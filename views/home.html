@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.css">
+		<link rel="stylesheet" href="../static/css/login.css"/>
 		<script src="https://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
 		<!-- <script src="../static/js/vue.min.js"></script> -->
 		<script src="../static/js/bootstrap.js"></script>
@@ -47,11 +48,32 @@
 		<script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 		<script src="../static/gis_815/js/libs/stats.min.js"></script>
 		
-			<div class="btn-group navi" role="group" aria-label="navigation">
-				<button type="button" class="btn btn-primary btn-lg" onclick="window.location.href= '/baidu?id={{tenantId}}'">&#12288;&#8197;进入&#12288;&#8197;</button>
-				<button type="button" class="btn btn-primary btn-lg" onclick="window.location.href= '/demo?id={{tenantId}}'">demo展示</button>
-				<button type="button" class="btn btn-primary btn-lg">了解更多</button>
+			<div class="btn-group navi" role="group" aria-label="navigation" id="top">
+
+			      <div class="login">
+				     <header>
+					    <h1>登录</h1>
+					 </header>
+					 <div class="sr">
+					    <!-- <form role="form" action="" method="post"> -->
+						    <div class="name">
+								<label>
+								<i class="sublist-icon glyphicon glyphicon-user"></i>
+								</label>
+								<input type="text"  placeholder="这里输入登录名" class="name_inp" id="form-username">
+							</div>
+							 <div class="name">
+								<label>
+								<i class="sublist-icon glyphicon glyphicon-pencil"></i>
+								</label>
+								<input type="password"  placeholder="这里输入登录密码" class="name_inp" id="form-password">
+							</div>
+							<button class="dl" id="dl">登录</button>
+						<!-- </form> -->
+					 </div>
+				  </div>
 			</div>
+
 		
 		</div>
 		
@@ -234,6 +256,6 @@
 				}
 
 			</script>
-		
+		<script src="../static/js/login.js"></script>
 	</body>
 </html>

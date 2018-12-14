@@ -6,6 +6,7 @@
 
 	<script src="http://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script type="text/javascript" src="../static/baidu/baidujs/toastr.js"></script>
 
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
@@ -35,7 +36,7 @@
                 </span>
             </div>
             <div class="col-xs-1 col-md-1 col-sm-1">
-                <input type="button" class="btn btn-danger" value="返回首页" id="quit" onclick="window.location.href= '/?id='+tenantId"/>
+                <input type="button" class="btn btn-danger" value="返回首页" id="quit" />
             </div>
         </div>
     </div>
@@ -47,7 +48,7 @@
          <a href="#" title="close"> <i class="fa fa-close fa-2x menu-close-icon b-clr"></i></a>
         </li>
         <li class="side-menu-icon">
-            <a href="javascript:void(0);" title="首页" onclick="lookMap()">
+            <a href="javascript:void(0);" title="首页" onclick="window.location.href='/baidu'">
                 <i class="fa fa-home fontStyle"></i>
                 <span class="textStyle">地图展示</span>
             </a>
@@ -142,6 +143,7 @@
 <script type="text/javascript" src="../static/baidu/baidujs/sitesList.js"></script>
 <script type="text/javascript" src="../static/baidu/baidujs/time.js"></script>
 <script type="text/javascript" src="../static/baidu/baidujs/menuCtrl.js"></script>
+<script src="../static/js/login.js"></script>
 
 </html>
 <script type="text/javascript">
